@@ -10,30 +10,38 @@ nr_symbols = int(input("How many symbols would you like?\n"))
 nr_numbers = int(input("How many numbers would you like?\n"))
 nr_Specific= input('is there anyhting you want to add specifically. yes or no: ')
 
+#these conditional Statements are to check if user wants to anything specific
 if nr_Specific=='yes':
     nr_Specific=input('what?')
 else:
     nr_Specific=''
 
-password=""
-passList=[]
+password="" #empty string to insert password from passList
+passList=[] #empty List to add Strings from above lists 
+
+#This loop is used to choose random letters from letters list
 for i in range(0,nr_letters):
     randChar=random.choice(letters)
     passList.append(randChar)
 
+#This loop is used to choose random number from numbers list
 for i in range(0,nr_numbers):
     randNum=random.choice(numbers)
     passList.append(randNum)
 
+#This loop is used to choose a random symbol from symbols list
 for i in range(0,nr_symbols):
     randSymbols=random.choice(symbols)
     passList.append(randSymbols)
 
+#this conditional Statement is to check if user added anything specific so that list is not filled with an empty string
 if nr_Specific!='':
     passList.append(nr_Specific)
 
+#passList List is shuffled
 random.shuffle(passList)
 
+#this For-loop is to concat Strings in passList List
 for i in passList:
     password += i
 print('--------------')
